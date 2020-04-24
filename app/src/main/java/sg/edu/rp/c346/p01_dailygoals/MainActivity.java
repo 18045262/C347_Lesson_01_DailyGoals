@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,16 +19,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         Button btn = findViewById(R.id.btnOK);
+        RadioGroup rg = findViewById(R.id.radioGroup1);
+        int selectedButtonId = rg.getCheckedRadioButtonId();
+        RadioButton rb = findViewById(selectedButtonId);
+
+        Toast.makeText(MainActivity.this, rb.getText(), Toast.LENGTH_LONG).show();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 RadioGroup rg1 = findViewById(R.id.radioGroup1);
                 int selected1 = rg1.getCheckedRadioButtonId();
-                final RadioButton rb1 = findViewById(selected1);
+                RadioButton rb1 = findViewById(selected1);
                 String select1 = (String) rb1.getText().toString();
 
 
